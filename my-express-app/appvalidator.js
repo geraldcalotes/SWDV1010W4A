@@ -7,6 +7,8 @@ app.use((req,res,next)=>{
 	console.log(`Request received : ${req.method}, ${req.url}`);
 	next();
 });
+app.use('/static',express.static('public'));
+
 /*
 app.get('/',(req,res) => {
 	res.send('This works second');
