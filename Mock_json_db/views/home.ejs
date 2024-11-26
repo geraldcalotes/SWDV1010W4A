@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="/css/styles.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<center><img id="image" src="/images/rdplogo.png" /> 
+		<h3> MOCK Json Crud Operations</h3>
+		</center>
+		<div id="formContainer">
+			<form id="addUserForm" method="POST" action="/users">
+			<h4>Add User Form (Post Method)</h4>
+				<input type="text" id="username" name="username" placeholder="Username" required />
+				<input type="text" id="first_name" name="first_name" placeholder="First Name" required />
+				<input type="email" id="email" name="email" placeholder="Email" required />		
+				<button type="submit">Add User</button>
+			</form>
+			<form id="editUserForm" method="POST" action="/users/:id/update">
+			<h4>Edit User Form (PUT Method)</h4>
+				<input type="number" id="edit_id" name="Id" placeholder="User ID" required />
+				<input type="text" id="new_username" name="new username" placeholder="New Username" required />
+				<input type="text" id="new_first_name" name="new_first_name" placeholder="New First Name" required />
+				<input type="email" id="new_email" name="new_email
+" placeholder="New Email" />
+				<button type="submit" onClick="">Update User</button>
+			</form>
+			<form id="deleteUserForm" method="POST" action="/users/:id/delete">
+				<h4>Delete User Form (POST/DELETE Method)</h4>
+				<input type="number" id="delete_id" name="Id" placeholder("User ID") required />
+				<button type="submit" onClick="">Delete User</button>
+			</form>
+		</div>		
+
+	</body>
+</html>

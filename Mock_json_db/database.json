@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "another",
+      "first_name": "another",
+      "email": "another@gmail.com"
+    },
+    {
+      "id": 2,
+      "username": "meow",
+      "first_name": "mix",
+      "email": "meowmix@gmail.com"
+    },
+    {
+      "id": 3,
+      "username": "winona",
+      "first_name": "anne",
+      "email": "winona@anne.com"
+    }
+  ]
+}
