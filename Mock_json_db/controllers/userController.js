@@ -25,8 +25,25 @@ async function createUser(req, res) {
         res.status(500).json(error);
     }
 }
-async function editUser(req, res) {
+async function updateUser(req, res) {
     try {
+        const data = await readData();
+        const userId = parseInt(req.params.id);
+        const userIndex = data.users.findIndex(user => user.id === userId);
+
+        if (userIndex === -1) {
+            return res.status(404).json('User not found');
+        }
+        data.users[userIndex] = {
+            ...data.users[userIndex],
+            username: req.body.new_username || data.users[userIndex].username,
+            first_name: req.body.new_first_name || data.users[userIndex].first_name,
+            email: req.body.new_email || data.users[userIndex].email
+        };
+
+        await writeData(data);
+        res.redirect("/home");
+
 
     } catch (error) {
 
@@ -35,6 +52,17 @@ async function editUser(req, res) {
 
 async function deleteUser(req, res) {
     try {
+        const data = await readData();
+        const userId = parseInt(req.params.id);
+        const userIndex = data.users.findIndex(user => user.id === userId);
+
+        if (userIndex === -1) {
+            return res.status(404).json('User not found');
+        }
+
+        data.users.splice(userIndex, 1);
+        await writeData(data);
+        res.redirect("/home");
 
     } catch (error) {
 
@@ -42,5 +70,5 @@ async function deleteUser(req, res) {
 }
 
 module.exports = {
-    createUser,editUser,deleteUser,
+    createUser,updateUser,deleteUser,
 }

@@ -18,19 +18,36 @@
 			</form>
 			<form id="editUserForm" method="POST" action="/users/:id/update">
 			<h4>Edit User Form (PUT Method)</h4>
-				<input type="number" id="edit_id" name="Id" placeholder="User ID" required />
-				<input type="text" id="new_username" name="new username" placeholder="New Username" required />
+				<input type="number" id="edit_id" name="id" placeholder="User ID" required />
+				<input type="text" id="new_username" name="new_username" placeholder="New Username" required />
 				<input type="text" id="new_first_name" name="new_first_name" placeholder="New First Name" required />
-				<input type="email" id="new_email" name="new_email
-" placeholder="New Email" />
-				<button type="submit" onClick="">Update User</button>
+				<input type="email" id="new_email" name="new_email" placeholder="New Email" />
+				<button type="submit" onClick="updateUser()">Update User</button>
 			</form>
 			<form id="deleteUserForm" method="POST" action="/users/:id/delete">
 				<h4>Delete User Form (POST/DELETE Method)</h4>
-				<input type="number" id="delete_id" name="Id" placeholder("User ID") required />
-				<button type="submit" onClick="">Delete User</button>
+				<input type="number" id="delete_id" name="delete_id" placeholder("User ID") required />
+				<button type="submit" onClick="deleteUser()">Delete User</button>
 			</form>
 		</div>		
 
 	</body>
+	<script>
+		function updateUser(){
+			var editForm = document.getElementById("editUserForm");
+			var id = editForm.elements["edit_id"].value;
+			console.log(editForm.elements["new_username"].value);
+			console.log(editForm.elements["new_first_name"].value);
+			console.log(editForm.elements["new_email"].value);
+			editForm.action = "/users/" + id + "/update";
+			editForm.submit();
+		}
+
+		function deleteUser(){
+			var deleteForm = document.getElementById("deleteUserForm");
+			var id = deleteForm.elements["delete_id"].value;
+			deleteForm.action = "/users/"+id+"/delete";
+			deleteForm.submit();
+		}
+	</script>
 </html>
