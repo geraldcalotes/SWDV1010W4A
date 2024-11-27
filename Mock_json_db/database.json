@@ -11,6 +11,18 @@
       "username": "11111",
       "first_name": "11111",
       "email": "111111@gmail.com"
+    },
+    {
+      "id": 3,
+      "username": "antman",
+      "first_name": "Anthony",
+      "email": "ae@gmail.com"
+    },
+    {
+      "id": 4,
+      "username": "wemby",
+      "first_name": "Victor",
+      "email": "victor@gmail.com"
     }
   ]
 }
