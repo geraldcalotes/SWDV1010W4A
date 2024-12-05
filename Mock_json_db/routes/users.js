@@ -16,7 +16,6 @@ router.post("/users/:id/delete",userController.deleteUser);
 
 router.get("/api/v1/users",async(req,res) => {
 	const data = await readData();
-	
 	res.json(data);
 });
 
